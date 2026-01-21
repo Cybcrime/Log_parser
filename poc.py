@@ -41,8 +41,10 @@ def get_passwords_file_blocs(location):
     print('Reading passwords from {}'.format(location))
     if path.isfile('{}/Passwords.txt'.format(location)):
         password_path = '{}/Passwords.txt'.format(location)
-    else:
+    elif path.isfile('{}/passwords.txt'.format(location)):
         password_path = '{}/passwords.txt'.format(location)
+    else:
+        password_path = '{}/All Passwords.txt'.format(location)
     with open(password_path, 'r') as f:
         return f.read().split('\n\n')
 
